@@ -1,3 +1,4 @@
+import { HttpClient,HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ForecastService } from '../forecast.service';
 
@@ -8,13 +9,14 @@ import { ForecastService } from '../forecast.service';
 })
 export class ForecastComponent implements OnInit {
 
+  forcastData:any[]=[];
 //get serivce from forecast service 
   constructor( private forecastService:ForecastService) {
-    forecastService.getCurrentLocation()
-      .subscribe((coords)=>{
-          console.log(coords);
-      })
-   }
+    forecastService.getForecast()
+      .subscribe((forecastData)=>{
+         this.forcastData=forecastData;
+         console.log(forecastData);
+      })   }
 
   ngOnInit(): void {
   }

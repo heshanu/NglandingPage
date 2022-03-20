@@ -1,1 +1,8 @@
-<p>forecast works!</p>
+<div *ngIf="forcastData">
+    <div  *ngFor="let f of forcastData">
+   <!-- {{getDayAndTemp( f.temp,f.dateString)}}-->
+        {{f.temp|number:'1.0-2'}}°
+        {{f.dateString| date:'EEE' }}
+   <!--using pipes-->
+    </div>
+</div>
