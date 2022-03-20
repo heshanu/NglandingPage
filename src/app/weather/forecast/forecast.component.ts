@@ -1,5 +1,6 @@
 import { HttpClient,HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ForecastService } from '../forecast.service';
 
 @Component({
@@ -9,14 +10,14 @@ import { ForecastService } from '../forecast.service';
 })
 export class ForecastComponent implements OnInit {
 
-  forcastData:any[]=[];
+  forecast$:Observable<{ dateString: any; temp: number; }[]>|any;
+  //forcastData:any[]=[];
 //get serivce from forecast service 
   constructor( private forecastService:ForecastService) {
-    forecastService.getForecast()
-      .subscribe((forecastData)=>{
-         this.forcastData=forecastData;
-         console.log(forecastData);
-      })   }
+    //this.forecast$=recastService.getForecast();
+    this.forecast$=forecastService.getForecast();
+
+  }
 
   ngOnInit(): void {
   }

@@ -1,8 +1,8 @@
-<div *ngIf="forcastData">
-    <div  *ngFor="let f of forcastData">
-   <!-- {{getDayAndTemp( f.temp,f.dateString)}}-->
-        {{f.temp|number:'1.0-2'}}°
-        {{f.dateString| date:'EEE' }}
-   <!--using pipes-->
-    </div>
-</div>
+<ul class="list-group">
+        <li  *ngFor="let f of forecast$|async" class="weather-item list-group-item">
+            <!-- {{getDayAndTemp( f.temp,f.dateString)}}-->
+           <p class="temp">{{f.temp|number:'1.0-2'}}°</p>
+            <p class="day">{{f.dateString| date:'EEE'}}</p>
+            <!--using pipes-->
+        </li>
+</ul>
