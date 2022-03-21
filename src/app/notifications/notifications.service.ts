@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { type } from 'os';
 import {Observable,Subject} from 'rxjs';
 import {scan} from 'rxjs/operators';
 
 
-interface Command{
+ export interface Command{
   id:number;
   type:'success'|'error'|'clear';
   text?:string;
@@ -53,7 +52,7 @@ export class NotificationsService {
     });
   }
 
-  
+
   private randomId() {
     return Math.round(Math.random() * 10000);
   }

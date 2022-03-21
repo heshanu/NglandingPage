@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NotificationsService } from '../notifications.service';
+import { Observable } from 'rxjs';
+import { NotificationsService,Command } from '../notifications.service';
 
 @Component({
   selector: 'app-notification-list',
@@ -8,7 +9,14 @@ import { NotificationsService } from '../notifications.service';
 })
 export class NotificationListComponent implements OnInit {
 
-  constructor() { }
+  messages: Observable<Command[]>;
+  constructor(private notificationService:NotificationsService) {
+    this.messages=notificationService.messagesOut;
+
+    setInterval(()=>{
+        notificationService.addSuccess('it is working');
+    },500);
+  }
 
   ngOnInit(): void {
   }
