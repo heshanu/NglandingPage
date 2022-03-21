@@ -37,7 +37,8 @@ export class NotificationsService {
       text: message,
       type: 'success'
     });
-    setInterval(()=>{
+    
+    setTimeout(()=>{
       this.clearMessage(id);
     },5000)
   }
