@@ -37,13 +37,13 @@ export class NotificationsService {
       text: message,
       type: 'success'
     });
-    
+
     setTimeout(()=>{
       this.clearMessage(id);
     },5000)
   }
  
-/*
+/* added timeout waiting time
   setTimeout(()=>{
     this.clearMesssage(id);
   },5000);
