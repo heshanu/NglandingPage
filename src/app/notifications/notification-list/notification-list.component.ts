@@ -11,14 +11,21 @@ export class NotificationListComponent implements OnInit {
 
   messages: Observable<Command[]>;
   constructor(private notificationService:NotificationsService) {
-    this.messages=notificationService.messagesOut;
+    this.messages=this.notificationService.messagesOut;
+    //add event to x
+
 
     setInterval(()=>{
         notificationService.addSuccess('it is working');
-    },500);
+    },2000);
   }
 
   ngOnInit(): void {
+    
   }
 
+  clearMessage(id:number){
+    this.notificationService.clearMessage(id);
+  }
+  
 }
