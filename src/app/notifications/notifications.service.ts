@@ -37,14 +37,16 @@ export class NotificationsService {
       text: message,
       type: 'success'
     });
+    setInterval(()=>{
+      this.clearMessage(id);
+    },5000)
   }
-  randomId() {
-    throw new Error('Method not implemented.');
-  }
-
+ 
+/*
   setTimeout(()=>{
     this.clearMesssage(id);
   },5000);
+*/
 
 
   addError(message: string) {
@@ -54,6 +56,12 @@ export class NotificationsService {
       type: 'error'
     });
   }
+
+  clearMessage(id:number){
+    this.messagesInput.next({
+      id,type:'clear'
+    })
+  }
   
   private randomId() {
     return Math.round(Math.random() * 10000);
@@ -61,11 +69,4 @@ export class NotificationsService {
 }
 
 
-function addError(message: any, string: any) {
-  throw new Error('Function not implemented.');
-}
-
-function randomId() {
-  throw new Error('Function not implemented.');
-}
 
