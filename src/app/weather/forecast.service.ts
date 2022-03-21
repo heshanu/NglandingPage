@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { filter, mergeMap, Observable, of, pluck, switchMap,toArray } from 'rxjs';
+import { filter, mergeMap, Observable, of, pluck, share, switchMap,toArray } from 'rxjs';
 import { map } from 'rxjs';
 import {HttpParams,HttpClient} from '@angular/common/http';
 
@@ -39,7 +39,8 @@ export class ForecastService {
             dateString: value.dt_txt,
             temp: value.main.temp
           };
-        }),toArray()
+        }),toArray(),
+        share()
     );
   }
   getCurrentLocation(){  
