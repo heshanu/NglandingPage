@@ -53,6 +53,7 @@ export class NotificationsService {
     });
   }
 
+  
   private randomId() {
     return Math.round(Math.random() * 10000);
   }
