@@ -11,6 +11,7 @@ import { NewsApiModule } from './news-api/news-api.module';
 import { NewsApiService } from './news-api/news-api.service';
 import { ForecastService } from './weather/forecast.service';
 import { TrimOutletNamePipe } from './news-api/trim-outlet-name.pipe';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { TrimOutletNamePipe } from './news-api/trim-outlet-name.pipe';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,WeatherModule,HttpClientModule,NotificationsModule,NewsApiModule
+    AppRoutingModule,WeatherModule,HttpClientModule,NotificationsModule,NewsApiModule,SharedModule
   ],
   providers: [NewsApiService,ForecastService,TrimOutletNamePipe],
   bootstrap: [AppComponent]
