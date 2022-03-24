@@ -5,8 +5,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class TrimOutletNamePipe implements PipeTransform {
 
-  transform(value:any): any {
-    return '';
+  transform(title:string,outletName:string): any {
+    return title.replace(` - ${outletName}`,'');
   }
 
 }
