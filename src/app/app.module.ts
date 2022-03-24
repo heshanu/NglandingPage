@@ -8,6 +8,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { NotificationsModule } from './notifications/notifications.module'; 
 //import { NewApiModule } from './new-api/new-api.module';
 import { NewsApiModule } from './news-api/news-api.module';
+import { NewsApiService } from './news-api/news-api.service';
+import { ForecastService } from './weather/forecast.service';
+import { TrimOutletNamePipe } from './news-api/trim-outlet-name.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,7 @@ import { NewsApiModule } from './news-api/news-api.module';
     BrowserModule,
     AppRoutingModule,WeatherModule,HttpClientModule,NotificationsModule,NewsApiModule
   ],
-  providers: [],
+  providers: [NewsApiService,ForecastService,TrimOutletNamePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

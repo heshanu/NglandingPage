@@ -46,6 +46,7 @@ export class NewsApiService {
         this.numberOfPages.next(totalPages);
       }),
       pluck('articles')
+      
     );
   }
 
