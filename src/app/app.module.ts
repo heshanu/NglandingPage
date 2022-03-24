@@ -6,14 +6,17 @@ import { AppComponent } from './app.component';
 import { WeatherModule } from './weather/weather.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NotificationsModule } from './notifications/notifications.module'; 
+//import { NewApiModule } from './new-api/new-api.module';
+import { NewsApiModule } from './news-api/news-api.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+   
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,WeatherModule,HttpClientModule,NotificationsModule
+    AppRoutingModule,WeatherModule,HttpClientModule,NotificationsModule,NewsApiModule
   ],
   providers: [],
   bootstrap: [AppComponent]
